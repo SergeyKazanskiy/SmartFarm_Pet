@@ -1,0 +1,91 @@
+/*
+*  --- СИСТЕМА ЦВЕТОВ ДЛЯ СВЕТЛОЙ И ТЕМНОЙ ТЕМЫ (Tailwind v4 + SCSS) ---
+*/
+
+:root {
+    /* --- Базовые настройки (Светлая тема) --- */
+    --p-h: 250; /* Основной цвет (Hue) для акцентов и кнопок */
+    --p-l: 0.6; /* Основной цвет (Lightness) для акцентов и кнопок */
+    --p-c: 0.18; /* Основной цвет (Chroma) для акцентов и кнопок */
+    --bg-l: 0.98; /* Фоновый цвет (Lightness) для светлой темы */
+    --fg-l: 0.15; /* Цвет текста (Lightness) для светлой темы */
+    --muted-l: 0.95; /* Цвет для приглушенного текста (Lightness) для светлой темы */
+    
+    /* Контраст для текста на кнопках (Безопасный clamp для SCSS) */
+    --p-fg-l: clamp(0.1, calc((0.65 - var(--p-l)) * 1000), 0.98); 
+  
+    /* --- ИКОНКИ --- */
+    --icon-active-c: var(--p-c); /* Активная иконка */
+    --icon-inactive-l: 0.45; /* Неактивная иконка */
+    --icon-disabled-l: 0.75; /* Неактивная иконка (disabled) */
+  
+    /* --- RGB ДЛЯ JS (Перенесено сюда, чтобы менялось в темной теме) --- */
+    --js-primary-rgb: 37, 99, 235; 
+    --js-background-rgb: 255, 255, 255;
+    --js-foreground-rgb: 15, 23, 42;
+  }
+  
+  .dark {
+    /* --- Инверсия (Темная тема) --- */
+    --p-h: 250;
+    --p-l: 0.55;
+    --p-c: 0.15;
+    --p-fg-l: 0.1; 
+    --bg-l: 0.12;
+    --fg-l: 0.95;
+    --muted-l: 0.2;
+  
+    /* --- ИКОНКИ --- */
+    --icon-inactive-l: 0.65; 
+    --icon-disabled-l: 0.35; 
+  
+    /* --- RGB ДЛЯ JS (Значения для темной темы) --- */
+    --js-primary-rgb: 96, 165, 250; /* Пример для темного индиго */
+    --js-background-rgb: 30, 41, 59;
+    --js-foreground-rgb: 248, 250, 252;
+  }
+  
+  @theme {
+    /* --- 1. ПОВЕРХНОСТИ (Backgrounds) --- */
+    --color-background: oklch(var(--bg-l) 0.01 var(--p-h)); /* Основной фон страницы (#ffffff) */
+    --color-surface: oklch(clamp(0.0, calc(var(--bg-l) + 0.02), 1.0) 0.02 var(--p-h)); /* Поверхность (карточки, модалки) */
+    --color-popover: oklch(var(--bg-l) 0.02 var(--p-h)); /* Поверхность для всплывающих окон (popover) */
+  
+    /* --- 2. ТЕКСТ (Foregrounds) --- */
+    --color-foreground: oklch(var(--fg-l) 0.02 var(--p-h)); /* Основной текст */
+    --color-muted-foreground: oklch(calc((var(--fg-l) + var(--bg-l)) * 0.5) 0.02 var(--p-h)); /* Приглушенный текст */
+  
+    /* --- 3. ГРАНИЦЫ И РАЗДЕЛИТЕЛИ --- */
+    --color-border: oklch(calc((var(--fg-l) + var(--bg-l) * 3) * 0.25) 0.01 var(--p-h)); /* Граница (border) */
+    --color-input: oklch(calc(var(--bg-l) - 0.05) 0.02 var(--p-h)); /* Поля ввода (input) */
+  
+    /* --- 4. ОСНОВНОЙ АКЦЕНТ (Primary) --- */
+    --color-primary: oklch(var(--p-l) var(--p-c) var(--p-h)); /* Основной цвет акцента (кнопки, ссылки) */
+    --color-primary-foreground: oklch(var(--p-fg-l) 0.01 var(--p-h)); /* Цвет текста на кнопках и ссылках */
+  
+    /* --- 5. ВТОРОСТЕПЕННЫЕ (Secondary/Muted) --- */
+    --color-secondary: oklch(calc(var(--bg-l) - 0.04) 0.04 var(--p-h)); /* Второстепенный цвет (Secondary) */
+    --color-secondary-foreground: var(--color-foreground); /* Цвет текста для второстепенного цвета */
+    --color-muted: oklch(calc(var(--bg-l) - 0.04) 0.02 var(--p-h)); /* Приглушенный цвет (Muted) */
+  
+    /* --- 6. СОСТОЯНИЯ (Accent) --- */
+    /* Чтобы сделать фон 15% в HTML, пишите класс: bg-accent/15 */
+    --color-accent: oklch(var(--p-l) 0.08 var(--p-h)); /* Цвет для состояний (Hover, Active, Focus) */
+    --color-accent-foreground: var(--color-primary); /* Цвет текста для состояний (Hover, Active, Focus) */
+  
+    /* --- 7. ICONS --- */
+    --color-icon-active: oklch(var(--fg-l) var(--icon-active-c) var(--p-h));
+    --color-icon-inactive: oklch(var(--icon-inactive-l) 0.02 var(--p-h));
+    --color-icon-disabled: oklch(var(--icon-disabled-l) 0.01 var(--p-h));
+    
+    /* Перепривязка JS-переменных в общую карту Tailwind (необязательно, но полезно) */
+    --color-primary-rgb: var(--js-primary-rgb);
+    --color-background-rgb: var(--js-background-rgb);
+    --color-foreground-rgb: var(--js-foreground-rgb);
+
+    /* --- 8. ДИНАМИЧЕСКИЕ ПЕРЕМЕННЫЕ (Dynamic Variables) --- */
+    --shadow-dynamic: 0 calc(4px * var(--user-volume)) calc(12px * var(--user-volume)) rgba(0, 0, 0, 0.15);
+    --shadow-glow-button: 0 0 calc(20px * var(--user-glow-intensity)) var(--color-primary);
+    --animate-duration-dynamic: calc(200ms * var(--user-animation-speed));
+  }
+  

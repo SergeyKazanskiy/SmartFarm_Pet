@@ -1,0 +1,61 @@
+architecture_version: "3.0-final"
+framework_stack:
+  state_manager: "Zustand (React)"
+  language: "TypeScript"
+  paradigm: "Three Independent Flat Stores + Presentational (Dumb) Components"
+
+store_directory_structure: |
+  src/store/client/
+  ├── stateStore.ts   # Flat UI state (IDs, loading flags, errors)
+  ├── dataStore.ts    # Flat Server data + pre-filtered helper arrays for views
+  └── actionsStore.ts # Pure JavaScript object containing sync/async business logic
+
+store_definitions:
+  state_store:
+    name: "useClientState"
+    responsibilities: "Manages primitive scalar flags and single selection IDs (activeFolderId, activeFileId, isFileLoading)."
+    update_behavior: "Flat object. Zustand automatically performs shallow merging on root fields via `setState`."
+  data_store:
+    name: "useClientData"
+    responsibilities: "Stores raw server arrays (folders, files) AND supplementary pre-filtered subsets (currentFiles) for components."
+  actions_store:
+    name: "actions"
+    responsibilities: "A standalone pure JS object (not a hook). Orchestrates stores by reading via `.getState()` and writing via `.setState()` directly."
+
+architectural_principles:
+  1_pre_filtered_computed_data:
+    description: "Instead of using external memoized selectors or heavy hooks, filtering is done once inside `clientActions` during events (e.g., clicking a folder). The result is written directly to helper arrays like `data.currentFiles`."
+  2_no_nested_spreads:
+    description: "By splitting into independent flat stores, mutations don't require deep object nested copying (no `...store.data`). Mutating a property is as simple as `useClientData.setState({ currentFiles })`."
+  3_decoupled_actions:
+    description: "Actions are entirely decoupled from React's lifecycle and hooks. They can be safely executed anywhere, and they never trigger false-positive component re-renders on their own."
+
+component_unification_convention:
+  base_interface: "BaseUnifiedProps<S, D, A>"
+  prop_structure:
+    state: "Component-specific UI state flat subset"
+    data: "Component-specific entity data flat subset"
+    actions: "Component-specific event callbacks map"
+    direction: "Optional flex direction layout: 'row' | 'col' | 'row-reverse' | 'col-reverse'"
+    gap: "Optional CSS string for gaps (e.g., '4px', '1rem')"
+    size: "Optional CSS string for icon/element sizing (e.g., '20px', '2rem')"
+    className: "Optional Tailwind styles for decoration only (bg, shadows, borders)."
+  styling_rule: "Layout direction, gaps, and sizes MUST be managed using native CSS inline-styles within the unified component to prevent Tailwind static compilation class collisions."
+
+page_usage_standard:
+  extraction_pattern: |
+    const state = useClientState(useShallow((s) => s));
+    const data = useClientData(useShallow((s) => s));
+    // actions is imported directly as an object, no hook needed.
+  jsx_binding_example: |
+    <FoldersView direction="col"
+      items={data.folders} 
+      selectedId={state.activeFolderId} 
+      onClick={actions.setActiveFolder} 
+    />
+    <FilesView direction="row" gap="4px"
+      items={data.currentFiles} 
+      selectedId={state.activeFileId} 
+      onClick={actions.setActiveFileForCurrentFolder}
+    />
+å
