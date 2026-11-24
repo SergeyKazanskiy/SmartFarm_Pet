@@ -1,7 +1,16 @@
-export type Project = {
-  id: string
-  title: string
+export interface SelectItem {
+  id: string;
+  name: string;
 }
+
+export interface Project extends SelectItem {
+  date: string;
+}
+
+// export type Project = {
+//   id: string
+//   title: string
+// }
 
 export type Category = {
   id: string

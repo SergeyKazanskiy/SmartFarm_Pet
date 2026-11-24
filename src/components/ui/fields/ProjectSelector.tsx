@@ -15,13 +15,7 @@ export interface ProjectSelectorProps {
   placeholder?: string
 }
 
-export function ProjectSelector({
-  width = '200px',
-  items,
-  selectedId,
-  onSelect,
-  placeholder = 'Выберите проект',
-}: ProjectSelectorProps) {
+export function ProjectSelector({ width = '200px', items, selectedId, onSelect, placeholder = 'Выберите проект' }: ProjectSelectorProps) {
   const [open, setOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
 

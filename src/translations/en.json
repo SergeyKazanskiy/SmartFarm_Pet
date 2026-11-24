@@ -1,0 +1,10 @@
+{
+	"navbar": {
+		"SmartFarm": "Smart Farm",
+		"home": "Home",
+		"about": "About",
+		"contact": "Contact",
+		"login": "Login",
+		"signup": "Sign Up"
+	}
+}

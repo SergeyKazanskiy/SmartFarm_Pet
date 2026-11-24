@@ -8,6 +8,7 @@ export interface PropertyRow {
 }
 
 export interface PropertiesViewProps {
+  label?: string;
   className?: string
   title?: string
   rows: PropertyRow[]

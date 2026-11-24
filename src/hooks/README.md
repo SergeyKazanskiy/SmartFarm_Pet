@@ -1,1 +1,0 @@
-Глобальные React-хуки общего назначения (useAudio, useMediaQuery, useClickOutside), которые не привязаны к конкретной бизнес-логике

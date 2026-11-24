@@ -10,6 +10,7 @@ export interface ActionItem {
 }
 
 export interface ActionsViewProps {
+  label?: string;
   className?: string
   title?: string
   items: ActionItem[]

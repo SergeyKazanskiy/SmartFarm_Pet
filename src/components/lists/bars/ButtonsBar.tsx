@@ -6,6 +6,7 @@ export interface CategoryItem {
 }
 
 export interface ButtonsBarProps {
+  label?: string;
   items: CategoryItem[]
   selectedId: string | null
   onClick: (id: string) => void

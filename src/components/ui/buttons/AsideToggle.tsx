@@ -1,6 +1,7 @@
 'use client'
 
 export interface AsideToggleProps {
+  label?: string;
   isOpen: boolean
   onToggle: () => void
   side?: 'left' | 'right'

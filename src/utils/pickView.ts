@@ -1,5 +1,5 @@
 // src/features/flow-views/merge-views.ts
-import type { FlowMeta } from "@/settings/flows/client-flow-meta";
+import type { FlowMeta } from "@/settings/flows-config/CLIENT_FLOWS";
 
 /** Возвращает компонент активного View с fallback на default */
 export function pickView<T extends Record<string, React.ComponentType>>(
