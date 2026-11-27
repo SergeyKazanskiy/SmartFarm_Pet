@@ -1,0 +1,45 @@
+{
+	"navbar": {
+		"SmartFarm": "Smart Farm",
+		"home": "Home",
+		"about": "About",
+		"contact": "Contact",
+		"login": "Login",
+		"signup": "Sign Up"
+	},
+	"materials": {
+		"families": { "metal": "Metal", "stone": "Stone", "wood": "Wood", "glass": "Glass" },
+		"metal":  { "gold": "Gold", "silver": "Silver", "platinum": "Platinum", "copper": "Copper", "bronze": "Bronze" },
+		"stone":  { "granite": "Granite", "marble": "Marble", "porcelain": "Porcelain" },
+		"wood":   { "lightGreen": "Light Green", "green": "Green", "lightBrown": "Light Brown", "brown": "Brown", "darkBrown": "Dark Brown" },
+		"glass":  { "frosted": "Frosted", "clear": "Clear", "tinted": "Tinted" }
+	},
+	"effects": {
+		"none": "None", "glow": "Glow", "shimmer": "Shimmer",
+		"iridescence": "Iridescence", "pulse": "Pulse", "press": "Press"
+	},
+	"effectSlots": { "hover": "Hover", "focus": "Focus", "pressed": "Pressed" },
+	"scales": {
+		"radius": "Radius", "shadow": "Shadow", "elevation": "Elevation",
+		"recess": "Recess", "speed": "Speed", "intensity": "Intensity",
+		"weight": "Font Weight", "shift": "Press Shift"
+	},
+	"palettes": {
+		"minimal": "Minimal", "classic": "Classic", "luxury": "Luxury",
+		"natural": "Natural", "stone": "Stone"
+	},
+	"categories": {
+		"general": {
+			"name": "General",
+			"tooltip": "General"
+		},
+		"facilities": {
+			"name": "Facilities",
+			"tooltip": "Buildings"
+		},
+		"units": {
+			"name": "Units",
+			"tooltip": "Units"
+		}
+	}
+}

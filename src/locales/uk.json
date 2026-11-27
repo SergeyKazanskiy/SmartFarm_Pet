@@ -1,0 +1,44 @@
+{
+	"navbar": {
+		"SmartFarm": "Розумна ферма",
+		"home": "Головна",
+		"about": "Про нас",
+		"services": "Послуги",
+		"contact": "Контакти"
+	},
+	"materials": {
+		"families": { "metal": "Метал", "stone": "Камінь", "wood": "Дерево", "glass": "Скло" },
+		"metal":  { "gold": "Золото", "silver": "Срібло", "platinum": "Платина", "copper": "Мідь", "bronze": "Бронза" },
+		"stone":  { "granite": "Граніт", "marble": "Мармар", "porcelain": "Фарфор" },
+		"wood":   { "lightGreen": "Світло-зелений", "green": "Зелений", "lightBrown": "Світло-коричневий", "brown": "Коричневий", "darkBrown": "Темно-коричневий" },
+		"glass":  { "frosted": "Матове", "clear": "Прозоре", "tinted": "Тоноване" }
+	},
+	"effects": {
+		"none": "Немає", "glow": "Світіння", "shimmer": "Мерехтіння",
+		"iridescence": "Переливання", "pulse": "Пульсація", "press": "Натискання"
+	},
+	"effectSlots": { "hover": "Наведення", "focus": "Фокус", "pressed": "Натискання" },
+	"scales": {
+		"radius": "Скруглення", "shadow": "Тіні", "elevation": "Підйом",
+		"recess": "Занурення", "speed": "Швидкість", "intensity": "Інтенсивність",
+		"weight": "Вага шрифту", "shift": "Зсув при натисканні"
+	},
+	"palettes": {
+		"minimal": "Мінімал", "classic": "Класика", "luxury": "Розкіш",
+		"natural": "Природа", "stone": "Камінь"
+	},
+	"categories": {
+		"general": {
+			"name": "Загальне",
+			"tooltip": "Загальне"
+		},
+		"facilities": {
+			"name": "Споруди",
+			"tooltip": "Будівлі"
+		},
+		"units": {
+			"name": "Вузли",
+			"tooltip": "Вузли"
+		}
+	}
+}

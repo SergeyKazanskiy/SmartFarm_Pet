@@ -1,0 +1,27 @@
+/*
+  Базовая шкала множителей (до UISync).
+  UISync переопределяет их значения из useUIStore.
+*/
+
+:root {
+    --radius-scale: 1;
+    --shadow-scale: 1;
+    --elevation-scale: 1;
+    --recess-scale: 1;
+    --speed-scale: 1;
+    --intensity-scale: 1;
+    --weight-scale: 1;
+    --shift-scale: 1;
+  }
+  
+  /* Пользовательские предпочтения: минимизируем анимации */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }

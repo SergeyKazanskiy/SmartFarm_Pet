@@ -1,0 +1,44 @@
+{
+	"navbar": {
+		"SmartFarm": "Умная ферма",
+		"home": "Главная",
+		"about": "О нас",
+		"services": "Услуги",
+		"contact": "Контакты"
+	},
+	"materials": {
+	  "families": { "metal": "Металл", "stone": "Камень", "wood": "Дерево", "glass": "Стекло" },
+	  "metal":  { "gold": "Золото", "silver": "Серебро", "platinum": "Платина", "copper": "Медь", "bronze": "Бронза" },
+	  "stone":  { "granite": "Гранит", "marble": "Мрамор", "porcelain": "Фарфор" },
+	  "wood":   { "lightGreen": "Светло-зелёный", "green": "Зелёный", "lightBrown": "Светло-коричневый", "brown": "Коричневый", "darkBrown": "Тёмно-коричневый" },
+	  "glass":  { "frosted": "Матовое", "clear": "Прозрачное", "tinted": "Тонированное" }
+	},
+	"effects": {
+	  "none": "Нет", "glow": "Сияние", "shimmer": "Мерцание",
+	  "iridescence": "Переливание", "pulse": "Пульсация", "press": "Нажатие"
+	},
+	"effectSlots": { "hover": "Наведение", "focus": "Фокус", "pressed": "Нажатие" },
+	"scales": {
+	  "radius": "Скругление", "shadow": "Тени", "elevation": "Подъём",
+	  "recess": "Углубление", "speed": "Скорость", "intensity": "Интенсивность",
+	  "weight": "Вес шрифта", "shift": "Сдвиг при нажатии"
+	},
+	"palettes": {
+	  "minimal": "Минимал", "classic": "Классика", "luxury": "Люкс",
+	  "natural": "Природа", "stone": "Камень"
+	},
+	"categories": {
+		"general": {
+		  "name": "Общее",
+		  "tooltip": "Общее"
+		},
+		"facilities": {
+		  "name": "Сооружения",
+		  "tooltip": "Здания"
+		},
+		"units": {
+		  "name": "Узлы",
+		  "tooltip": "Узлы"
+		}
+	}
+}

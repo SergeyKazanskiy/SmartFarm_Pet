@@ -1,0 +1,163 @@
+/*
+  Материалы как CSS-переменные (вариант B).
+  Каждый материал задаёт:
+    --surface-bg        — фон (градиент или solid)
+    --surface-fg        — цвет текста на этом фоне
+    --surface-border    — цвет бордера
+    --surface-shadow    — тень (ссылка на глобальный токен)
+    --surface-backdrop  — backdrop-filter (для glass)
+  Все цвета и тени адаптируются к --intensity-scale.
+  crystal отложен (требует SCSS-миксин, отдельная итерация).
+*/
+
+/* ─── METAL ─── */
+[data-material="metal-gold"] {
+    --surface-bg: linear-gradient(135deg, #d4af37, #f9f295, #b8860b);
+    --surface-fg: oklch(0.18 0.03 80);
+    --surface-border: oklch(from #b8860b calc(l - 0.1) c h);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: none;
+  }
+  
+  [data-material="metal-silver"] {
+    --surface-bg: linear-gradient(135deg, #c0c0c0, #e8e8e8, #a0a0a0);
+    --surface-fg: oklch(0.18 0.01 240);
+    --surface-border: oklch(from #a0a0a0 calc(l - 0.1) c h);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: none;
+  }
+  
+  [data-material="metal-platinum"] {
+    --surface-bg: linear-gradient(135deg, #e5e4e2, #f5f5f5, #c8c6c3);
+    --surface-fg: oklch(0.18 0.01 240);
+    --surface-border: oklch(from #c8c6c3 calc(l - 0.08) c h);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: none;
+  }
+  
+  [data-material="metal-copper"] {
+    --surface-bg: linear-gradient(135deg, #b87333, #d99560, #8b4513);
+    --surface-fg: oklch(0.15 0.02 30);
+    --surface-border: oklch(from #8b4513 calc(l - 0.1) c h);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: none;
+  }
+  
+  [data-material="metal-bronze"] {
+    --surface-bg: linear-gradient(135deg, #cd7f32, #e0a865, #8b5a2b);
+    --surface-fg: oklch(0.15 0.02 30);
+    --surface-border: oklch(from #8b5a2b calc(l - 0.1) c h);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: none;
+  }
+  
+  /* ─── STONE ─── */
+  [data-material="stone-granite"] {
+    --surface-bg:
+      radial-gradient(circle at 20% 30%, rgb(255 255 255 / 0.15) 0%, transparent 20%),
+      radial-gradient(circle at 70% 60%, rgb(0 0 0 / 0.15) 0%, transparent 25%),
+      radial-gradient(circle at 40% 80%, rgb(255 255 255 / 0.1) 0%, transparent 15%),
+      linear-gradient(135deg, #555, #888, #555);
+    --surface-fg: oklch(0.95 0.01 240);
+    --surface-border: oklch(0.35 0.01 240);
+    --surface-shadow: var(--shadow-lg);
+    --surface-backdrop: none;
+  }
+  
+  [data-material="stone-marble"] {
+    --surface-bg:
+      linear-gradient(115deg, transparent 45%, rgb(255 255 255 / 0.3) 50%, transparent 55%),
+      linear-gradient(135deg, #f0f0f0, #fafafa, #e8e8e8);
+    --surface-fg: oklch(0.15 0.01 240);
+    --surface-border: oklch(from #e8e8e8 calc(l - 0.1) c h);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: none;
+  }
+  
+  [data-material="stone-porcelain"] {
+    --surface-bg: linear-gradient(135deg, #fafafa, #ffffff, #f5f5f5);
+    --surface-fg: oklch(0.15 0.01 240);
+    --surface-border: oklch(from #f5f5f5 calc(l - 0.08) c h);
+    --surface-shadow: var(--shadow-sm);
+    --surface-backdrop: none;
+  }
+  
+  /* ─── WOOD ─── */
+  [data-material="wood-light-green"] {
+    --surface-bg: linear-gradient(135deg, #c5d8a4, #d8e4b8, #b5c990);
+    --surface-fg: oklch(0.2 0.03 100);
+    --surface-border: oklch(from #b5c990 calc(l - 0.1) c h);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: none;
+  }
+  
+  [data-material="wood-green"] {
+    --surface-bg: linear-gradient(135deg, #7a8c4f, #93a867, #667539);
+    --surface-fg: oklch(0.98 0.01 100);
+    --surface-border: oklch(from #667539 calc(l - 0.05) c h);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: none;
+  }
+  
+  [data-material="wood-light-brown"] {
+    --surface-bg: linear-gradient(135deg, #d4a574, #e6c299, #b8845a);
+    --surface-fg: oklch(0.2 0.03 60);
+    --surface-border: oklch(from #b8845a calc(l - 0.1) c h);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: none;
+  }
+  
+  [data-material="wood-brown"] {
+    --surface-bg: linear-gradient(135deg, #8b5a2b, #a37045, #704520);
+    --surface-fg: oklch(0.98 0.01 60);
+    --surface-border: oklch(from #704520 calc(l - 0.05) c h);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: none;
+  }
+  
+  [data-material="wood-dark-brown"] {
+    --surface-bg: linear-gradient(135deg, #4a2f1a, #5c3c22, #3a2412);
+    --surface-fg: oklch(0.95 0.01 60);
+    --surface-border: oklch(from #3a2412 calc(l + 0.1) c h);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: none;
+  }
+  
+  /* ─── GLASS ─── */
+  [data-material="glass-frosted"] {
+    --surface-bg: oklch(from var(--color-background) l c h / calc(0.5 * var(--intensity-scale)));
+    --surface-fg: var(--color-foreground);
+    --surface-border: oklch(from var(--color-border) l c h / 0.4);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: blur(calc(12px * var(--intensity-scale)));
+  }
+  
+  [data-material="glass-clear"] {
+    --surface-bg: oklch(from var(--color-background) l c h / calc(0.15 * var(--intensity-scale)));
+    --surface-fg: var(--color-foreground);
+    --surface-border: oklch(from var(--color-border) l c h / 0.3);
+    --surface-shadow: var(--shadow-sm);
+    --surface-backdrop: blur(calc(6px * var(--intensity-scale)));
+  }
+  
+  [data-material="glass-tinted"] {
+    --surface-bg: oklch(from var(--color-primary) calc(l + 0.2) calc(c * 0.5) h / calc(0.25 * var(--intensity-scale)));
+    --surface-fg: var(--color-foreground);
+    --surface-border: oklch(from var(--color-primary) l c h / 0.4);
+    --surface-shadow: var(--shadow-md);
+    --surface-backdrop: blur(calc(10px * var(--intensity-scale)));
+  }
+
+/*
+  Нейтральный материал — стандартные токены темы.
+  Используется Container без material, чтобы не наследовать глобальный
+  data-material с :root. Container ставит data-material="none" на себя —
+  это перекрывает наследование и даёт нейтральные значения.
+*/
+[data-material="none"] {
+    --surface-bg: var(--color-surface);
+    --surface-fg: var(--color-foreground);
+    --surface-border: var(--color-border);
+    --surface-shadow: var(--shadow-sm);
+    --surface-backdrop: none;
+  }

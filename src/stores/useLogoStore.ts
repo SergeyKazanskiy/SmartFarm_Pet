@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { LogoIcon } from '@/types/logoIcons';
+import type { LogoIcon } from '@/types/logo-icons';
 
 /*
 	Хранение состояния выбранного логотипа.

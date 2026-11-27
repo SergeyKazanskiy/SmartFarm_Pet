@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { PRESETS, type PresetKey } from "@/types/themePresets";
+import { PRESETS, type PresetKey } from "@/types/theme-presets";
 
 /*
 	ThemeStore — zustand-store для управления темой приложения.

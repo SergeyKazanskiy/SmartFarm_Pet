@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -23,4 +23,69 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+@import "tailwindcss";
+@import "./materials.css";
+@import "./effects.css";
+
+/* Базовые значения множителей. Переопределяются UISync. */
+:root {
+  --radius-scale: 1;
+  --shadow-scale: 1;
+  --elevation-scale: 1;
+  --recess-scale: 1;
+  --speed-scale: 1;
+  --intensity-scale: 1;
+  --weight-scale: 1;
+  --shift-scale: 1;
+}
+
+@theme {
+  /* Радиусы — умножаются на --radius-scale */
+  --radius-xs: calc(2px  * var(--radius-scale));
+  --radius-sm: calc(4px  * var(--radius-scale));
+  --radius-md: calc(6px  * var(--radius-scale));
+  --radius-lg: calc(10px * var(--radius-scale));
+  --radius-xl: calc(16px * var(--radius-scale));
+
+  /* Размеры контролов (не масштабируются — это layout, не декор) */
+  --spacing-control-xs: 24px;
+  --spacing-control-sm: 32px;
+  --spacing-control-md: 40px;
+  --spacing-control-lg: 48px;
+
+  /* Веса шрифта — умножаются на --weight-scale */
+  --font-weight-normal:   calc(400 * var(--weight-scale));
+  --font-weight-medium:   calc(500 * var(--weight-scale));
+  --font-weight-semibold: calc(600 * var(--weight-scale));
+  --font-weight-bold:     calc(700 * var(--weight-scale));
+
+  /* Тени — умножаются на --shadow-scale */
+  --shadow-sm:
+    0 calc(1px * var(--shadow-scale)) calc(2px * var(--shadow-scale)) rgb(0 0 0 / 0.06);
+  --shadow-md:
+    0 calc(2px * var(--shadow-scale)) calc(4px * var(--shadow-scale)) rgb(0 0 0 / 0.08),
+    0 calc(1px * var(--shadow-scale)) calc(2px * var(--shadow-scale)) rgb(0 0 0 / 0.04);
+  --shadow-lg:
+    0 calc(4px * var(--shadow-scale)) calc(8px  * var(--shadow-scale)) rgb(0 0 0 / 0.10),
+    0 calc(2px * var(--shadow-scale)) calc(4px  * var(--shadow-scale)) rgb(0 0 0 / 0.06);
+
+  /* Подъём (elevation) — для «приподнятых» панелей */
+  --elevation-1: 0 calc(1px * var(--elevation-scale)) calc(2px * var(--elevation-scale)) rgb(0 0 0 / 0.08);
+  --elevation-2: 0 calc(2px * var(--elevation-scale)) calc(6px * var(--elevation-scale)) rgb(0 0 0 / 0.10);
+  --elevation-3: 0 calc(4px * var(--elevation-scale)) calc(12px * var(--elevation-scale)) rgb(0 0 0 / 0.12);
+
+  /* Углубление (recess) — для инпутов */
+  --recess-sm: inset 0 calc(1px * var(--recess-scale)) calc(2px * var(--recess-scale)) rgb(0 0 0 / 0.08);
+  --recess-md: inset 0 calc(2px * var(--recess-scale)) calc(4px * var(--recess-scale)) rgb(0 0 0 / 0.12);
+
+  /* Длительности — делятся на --speed-scale (больше scale = быстрее) */
+  --duration-fast:   calc(150ms / var(--speed-scale));
+  --duration-normal: calc(300ms / var(--speed-scale));
+  --duration-slow:   calc(500ms / var(--speed-scale));
+
+  /* Easing */
+  --ease-out-expo:     cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft:  cubic-bezier(0.4, 0, 0.2, 1);
 }

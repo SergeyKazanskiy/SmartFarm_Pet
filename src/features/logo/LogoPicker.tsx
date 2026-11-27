@@ -1,6 +1,6 @@
 "use client";
 
-import { LOGO_ICONS } from "@/types/logoIcons";
+import { LOGO_ICONS } from "@/types/logo-icons";
 import { useLogoStore } from "@/stores/useLogoStore";
 import { useOverlayStore } from "@/stores/useOverlayStore";
 

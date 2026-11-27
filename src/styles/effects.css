@@ -1,0 +1,65 @@
+/*
+  Эффекты по слотам. Глобальные — один эффект на слот для всего приложения.
+  Триггерятся на элементах с [data-interactive].
+  Все параметры адаптируются к --speed-scale и --intensity-scale.
+*/
+
+[data-interactive] {
+    transition:
+      box-shadow var(--duration-fast) ease-out,
+      transform var(--duration-fast) ease-out,
+      filter var(--duration-fast) ease-out;
+  }
+  
+  /* ─── HOVER ─── */
+  :root[data-effect-hover="glow"] [data-interactive]:not(:disabled):hover {
+    box-shadow:
+      0 0 calc(8px  * var(--intensity-scale)) oklch(from var(--color-primary) l c h / calc(0.55 * var(--intensity-scale))),
+      0 0 calc(16px * var(--intensity-scale)) oklch(from var(--color-primary) l c h / calc(0.25 * var(--intensity-scale)));
+  }
+  
+  :root[data-effect-hover="shimmer"] [data-interactive]:hover {
+    animation: ui-shimmer calc(1200ms / var(--speed-scale)) ease-in-out infinite;
+  }
+  
+  :root[data-effect-hover="iridescence"] [data-interactive]:hover {
+    animation: ui-iridescence calc(2000ms / var(--speed-scale)) ease-in-out infinite;
+  }
+  
+  :root[data-effect-hover="pulse"] [data-interactive]:hover {
+    animation: ui-pulse calc(1500ms / var(--speed-scale)) ease-in-out infinite;
+  }
+  
+  /* ─── FOCUS ─── */
+  :root[data-effect-focus="glow"] [data-interactive]:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--color-background),
+      0 0 0 4px oklch(from var(--color-primary) l c h / calc(0.6 * var(--intensity-scale)));
+  }
+  
+  /* ─── PRESSED ─── */
+  :root[data-effect-pressed="press"] [data-interactive]:active {
+    transform: translateY(calc(1px * var(--shift-scale)));
+  }
+  
+  :root[data-effect-pressed="glow"] [data-interactive]:active {
+    box-shadow:
+      inset 0 0 calc(6px * var(--intensity-scale)) oklch(from var(--color-primary) l c h / calc(0.4 * var(--intensity-scale)));
+  }
+  
+  /* ─── KEYFRAMES ─── */
+  @keyframes ui-shimmer {
+    0%, 100% { filter: brightness(1); }
+    50%      { filter: brightness(calc(1 + 0.15 * var(--intensity-scale))); }
+  }
+  
+  @keyframes ui-iridescence {
+    0%, 100% { filter: hue-rotate(0deg)   brightness(1); }
+    50%      { filter: hue-rotate(20deg)  brightness(calc(1 + 0.1 * var(--intensity-scale))); }
+  }
+  
+  @keyframes ui-pulse {
+    0%, 100% { filter: brightness(1); }
+    50%      { filter: brightness(calc(1 + 0.12 * var(--intensity-scale))); }
+  }

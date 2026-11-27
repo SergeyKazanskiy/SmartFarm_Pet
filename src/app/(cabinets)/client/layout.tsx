@@ -123,3 +123,14 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     </div>
   );
 }
+
+/*
+<SlidingDrawer side="right" open={rightOpen} duration={ANIM}>
+  <Surface material="glass" variant="fill" className="p-2">
+    <div className="flex min-h-0 flex-col gap-2">
+      <PropertiesPanel … />
+      <ActionsPanel … />
+    </div>
+  </Surface>
+</SlidingDrawer>
+*/
